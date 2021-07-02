@@ -1,30 +1,40 @@
 package pageobject.railway;
 
-import constant.Constant;
-import org.openqa.selenium.By;
+import common.WebDriverManage;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends GeneralPage {
-    private final By _txtUsername = By.xpath("//input[@id='username']");
-    private final By _txtPassword = By.xpath("//input[@id='password']");
-    private final By _btnLogin = By.xpath("//input[@value='Login']");
-    private final By _lblLoginError = By.xpath("//p[@class='message error LoginForm']");
+    private final String _txtUsername = "//input[@id='username']";
+    private final String _txtPassword = "//input[@id='password']";
+    private final String _btnLogin = "//input[@value='Login']";
+    private final String _lblLoginError = "//p[@class='message error LoginForm']";
+    private static LoginPage loginPage = null;
 
+    public static LoginPage getInstance(){
+        if(loginPage == null){
+            loginPage = new LoginPage();
+        }
+        return loginPage;
+    }
 
    public WebElement getTxtUsername(){
-       return Constant.WEBDRIVER.findElement(_txtUsername);
+       return WebDriverManage.getInstance().findElementByXpath(_txtUsername);
    }
 
    public WebElement getTxtPassword(){
-        return Constant.WEBDRIVER.findElement(_txtPassword);
+        return WebDriverManage.getInstance().findElementByXpath(_txtPassword);
    }
 
    public WebElement getBtnLogin(){
-        return Constant.WEBDRIVER.findElement(_btnLogin);
+        return WebDriverManage.getInstance().findElementByXpath(_btnLogin);
    }
 
    public WebElement getLblLoginError(){
-        return Constant.WEBDRIVER.findElement(_lblLoginError);
+        return WebDriverManage.getInstance().findElementByXpath(_lblLoginError);
+   }
+
+   public String getLoginErrorMessage(){
+        return this.getLblLoginError().getText();
    }
 
    public HomePage login(String username,String password){
@@ -32,5 +42,21 @@ public class LoginPage extends GeneralPage {
        this.getTxtPassword().sendKeys(password);
        this.getBtnLogin().click();
        return new HomePage();
+   }
+
+   public Boolean checkLoginPageExist(){
+        Boolean isUserNameExist = this.getTxtUsername().isDisplayed();
+        Boolean isPasswordExist = this.getTxtPassword().isDisplayed();
+        Boolean isBtnLoginExist = this.getBtnLogin().isDisplayed();
+        if(isBtnLoginExist == false || isPasswordExist == false || isUserNameExist == false){
+            return false;
+        }
+        return true;
+   }
+
+   public void loginInvalid(int numberRepeat,String UserName,String Password){
+        for (int i = 0;i<numberRepeat;i++){
+            login(UserName,Password);
+        }
    }
 }

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="RailwayTest" />
+        <module name="DuongVinhThai_RailWay_Automation" />
       </profile>
     </annotationProcessing>
   </component>
