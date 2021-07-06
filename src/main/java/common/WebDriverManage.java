@@ -1,8 +1,6 @@
 package common;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebDriverManage {
@@ -23,6 +21,10 @@ public class WebDriverManage {
         return driver;
     }
 
+    public void newWebDriver(){
+        this.driver = new ChromeDriver();
+    }
+
     public void maximizeBrowser() {
         driver.manage().window().maximize();
     }
@@ -36,8 +38,32 @@ public class WebDriverManage {
     }
 
     public WebElement findElementByXpath(String locator) {
-        By elementLocator = By.xpath(locator);
-        WebElement element = driver.findElement(elementLocator);
+        WebElement element = null;
+        try {
+            By elementLocator = By.xpath(locator);
+            element = driver.findElement(elementLocator);
+        }catch (StaleElementReferenceException e){
+            element = null;
+            e.printStackTrace();
+        }catch (NoSuchElementException e1){
+            element = null;
+            e1.printStackTrace();
+        }
+        return element;
+    }
+
+    public WebElement findElementById(String id) {
+        WebElement element = null;
+        try {
+            By elementLocator = By.id(id);
+            element = driver.findElement(elementLocator);
+        }catch (StaleElementReferenceException e){
+            element = null;
+            e.printStackTrace();
+        }catch (NoSuchElementException e1){
+            element = null;
+            e1.printStackTrace();
+        }
         return element;
     }
 

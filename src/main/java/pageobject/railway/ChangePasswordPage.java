@@ -10,10 +10,8 @@ public class ChangePasswordPage extends GeneralPage {
     private String btnChangePassword = "//form[@id='ChangePW']//input[@type='submit']";
     private static ChangePasswordPage changePasswordPage = null;
 
-    public static ChangePasswordPage getInstance(){
-        if(changePasswordPage == null){
-            changePasswordPage = new ChangePasswordPage();
-        }
+    public static ChangePasswordPage getNewInstance(){
+        changePasswordPage = new ChangePasswordPage();
         return changePasswordPage;
     }
 

@@ -10,7 +10,7 @@ public class TestBase {
     @BeforeClass
     public void beforeClass(){
         WebDriverManage.getInstance().setDriverProperty(Constant.WEB_DRIVER_KEY,Constant.PATH_DRIVER_DIRECTION);
-        WebDriverManage.getInstance().getWebDriver();
+        WebDriverManage.getInstance().newWebDriver();
         WebDriverManage.getInstance().maximizeBrowser();
     }
 

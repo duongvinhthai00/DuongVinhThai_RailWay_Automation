@@ -10,10 +10,8 @@ public class LoginPage extends GeneralPage {
     private final String _lblLoginError = "//p[@class='message error LoginForm']";
     private static LoginPage loginPage = null;
 
-    public static LoginPage getInstance(){
-        if(loginPage == null){
-            loginPage = new LoginPage();
-        }
+    public static LoginPage getNewInstance(){
+        loginPage = new LoginPage();
         return loginPage;
     }
 

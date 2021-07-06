@@ -9,30 +9,27 @@ public class GeneralPage {
     private final String tabLogout = "//div[@id='menu']//a[@href='/Account/Logout']";
     private final String lblWelcomeMessages = "//div[@class='account']/strong";
     private final String tabBookTicket = "//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']";
+    private final String tabMyTicket = "//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']";
+    private final String tabChangePassword = "//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']";
+    private final String tabRegister = "//div[@id='menu']//a[@href='/Account/Register.cshtml']";
 
     private static GeneralPage generalPage = null;
 
-    public static GeneralPage getInstance() {
-        if (generalPage == null) {
-            generalPage = new GeneralPage();
-        }
+    public static GeneralPage getNewInstance() {
+        generalPage = new GeneralPage();
         return generalPage;
     }
 
-    public String getXpathOfTab(String href) {
-        return (new StringBuilder()).append("//div[@id='menu']//a[@href=").append(href).append("]").toString();
-    }
-
     protected WebElement getTabMyTicket() {
-        return WebDriverManage.getInstance().findElementByXpath(getXpathOfTab("'/Page/ManageTicket.cshtml'"));
+        return WebDriverManage.getInstance().findElementByXpath(tabMyTicket);
     }
 
     protected WebElement getTabChangePassword() {
-        return WebDriverManage.getInstance().findElementByXpath(getXpathOfTab("'/Account/ChangePassword.cshtml'"));
+        return WebDriverManage.getInstance().findElementByXpath(tabChangePassword);
     }
 
     protected WebElement getTabRegister() {
-        return WebDriverManage.getInstance().findElementByXpath(getXpathOfTab("'/Account/Register.cshtml'"));
+        return WebDriverManage.getInstance().findElementByXpath(tabRegister);
     }
 
     protected WebElement getTabLogin() {
@@ -92,13 +89,9 @@ public class GeneralPage {
     }
 
     public boolean CheckTabLogoutExist(){
-        boolean present;
-        try {
-            getTabLogout();
-            present = true;
-        } catch (NoSuchElementException e) {
-            present = false;
+        if (getTabLogout() != null){
+            return true;
         }
-        return present;
+        return false;
     }
 }

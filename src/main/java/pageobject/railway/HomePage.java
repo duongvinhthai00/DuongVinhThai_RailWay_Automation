@@ -6,10 +6,8 @@ import constant.Constant;
 public class HomePage extends GeneralPage {
     private static HomePage homePage = null;
 
-    public static HomePage getInstance(){
-        if(homePage == null){
-            homePage = new HomePage();
-        }
+    public static HomePage getNewInstance(){
+        homePage = new HomePage();
         return homePage;
     }
 

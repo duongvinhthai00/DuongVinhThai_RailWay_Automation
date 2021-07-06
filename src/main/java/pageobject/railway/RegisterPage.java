@@ -1,7 +1,6 @@
 package pageobject.railway;
 
 import common.WebDriverManage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class RegisterPage extends GeneralPage {
@@ -14,31 +13,26 @@ public class RegisterPage extends GeneralPage {
     private String lbl_Register_Successfully = "//div[@id='content']/p";
     private static RegisterPage registerPage = null;
 
-    public static RegisterPage getInstance(){
-        if(registerPage == null){
-            registerPage = new RegisterPage();
-        }
+    public static RegisterPage getNewInstance(){
+        registerPage = new RegisterPage();
         return registerPage;
     }
 
-    public WebElement getRegisterFieldById(String id){
-        return WebDriverManage.getInstance().getWebDriver().findElement(By.id(id));
-    }
 
     public WebElement getFieldEmail(){
-        return this.getRegisterFieldById(txt_email_id);
+        return WebDriverManage.getInstance().findElementById(txt_email_id);
     }
 
     public WebElement getFieldPassword(){
-        return this.getRegisterFieldById(txt_password_id);
+        return WebDriverManage.getInstance().findElementById(txt_password_id);
     }
 
     public WebElement getFieldConfirmPassword(){
-        return this.getRegisterFieldById(txt_confirmPassword_id);
+        return WebDriverManage.getInstance().findElementById(txt_confirmPassword_id);
     }
 
     public WebElement getFieldPID(){
-        return this.getRegisterFieldById(txt_pid_id);
+        return WebDriverManage.getInstance().findElementById(txt_pid_id);
     }
 
     public WebElement getBtnRegister(){
