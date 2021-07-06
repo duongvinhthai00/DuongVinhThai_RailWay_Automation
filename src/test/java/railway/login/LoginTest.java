@@ -31,7 +31,7 @@ public class LoginTest extends TestBase {
     public void TC01(){
         System.out.println("TC01 - User Can Login Into Railway with valid username and password");
         homePage.goToLoginPage();
-        loginPage.login(Constant.USERNAME,Constant.PASSWORD);
+        loginPage.login(Constant.USERNAME,Constant.VALID_PASSWORD);
         String actualMsg = homePage.getWelcomeMessage();
         String expectedMsg = String.format(Constant.WELCOME_MSG,Constant.USERNAME);
         Assert.assertEquals(actualMsg,expectedMsg);
@@ -42,7 +42,7 @@ public class LoginTest extends TestBase {
     public void TC02(){
         System.out.println("TC02 - User Can not Login Into Railway with blank username");
         homePage.goToLoginPage();
-        loginPage.login("",Constant.PASSWORD);
+        loginPage.login("",Constant.VALID_PASSWORD);
         Assert.assertEquals(loginPage.getLoginErrorMessage(),Constant.INVALID_LOGIN_MSG);
     }
 
@@ -73,7 +73,7 @@ public class LoginTest extends TestBase {
     @Test(description = "User can't login with an account hasn't been activated")
     public void TC08(){
         homePage.goToLoginPage();
-        loginPage.login(Constant.USERNAME,Constant.PASSWORD);
+        loginPage.login(Constant.USERNAME,Constant.VALID_PASSWORD);
         Assert.assertEquals(loginPage.getLoginErrorMessage(),Constant.INVALID_USERNAME_PASSWORD);
 
     }

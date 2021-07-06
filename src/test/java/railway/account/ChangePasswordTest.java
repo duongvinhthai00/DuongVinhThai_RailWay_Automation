@@ -17,11 +17,11 @@ public class ChangePasswordTest extends TestBase {
     public void TC09(){
         homePage.open();
         homePage.goToLoginPage();
-        loginPage.login(Constant.USERNAME,Constant.PASSWORD);
+        loginPage.login(Constant.USERNAME,Constant.VALID_PASSWORD);
         homePage.goToChangePasswordPage();
-        changePasswordPage.changePassword(Constant.PASSWORD,Constant.NEW_PASSWORD);
+        changePasswordPage.changePassword(Constant.VALID_PASSWORD,Constant.NEW_PASSWORD);
         Assert.assertEquals(changePasswordPage.getChangePasswordSuccessMessage(),Constant.CHANGE_PASSWORD_MESSAGE_SUCCESS);
-        changePasswordPage.changePassword(Constant.NEW_PASSWORD,Constant.PASSWORD);
+        changePasswordPage.changePassword(Constant.NEW_PASSWORD,Constant.VALID_PASSWORD);
         Assert.assertEquals(changePasswordPage.getChangePasswordSuccessMessage(),Constant.CHANGE_PASSWORD_MESSAGE_SUCCESS);
         if (generalPage.CheckTabLogoutExist()){
             homePage.Logout();

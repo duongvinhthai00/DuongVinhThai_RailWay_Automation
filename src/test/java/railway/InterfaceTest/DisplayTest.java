@@ -19,7 +19,7 @@ public class DisplayTest extends TestBase {
     public void TC06() {
         homePage.open();
         homePage.goToLoginPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.login(Constant.USERNAME, Constant.VALID_PASSWORD);
         Assert.assertEquals(generalPage.CheckTabDisplayAfterLogin(), true);
         homePage.goToMyTicketPage();
         Assert.assertEquals(generalPage.CheckPageOpen("My Ticket"), true);

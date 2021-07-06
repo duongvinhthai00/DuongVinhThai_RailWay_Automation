@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class Constant {
     public static final String RAILWAY_URL="http://www.railway2.somee.com/Page/HomePage.cshtml";
     public static final String USERNAME="thai00458@gmail.com";
-    public static final String PASSWORD="a01645901060";
+    public static final String VALID_PASSWORD="a01645901060";
     public static final String NEW_PASSWORD="a01645901060A";
     public static final String PATH_DRIVER_DIRECTION = "D:\\DuongVinhThai_RailWay_Automation\\src\\main\\executables\\chromedriver.exe";
     public static final String WEB_DRIVER_KEY = "webdriver.chrome.driver";
@@ -20,4 +20,12 @@ public class Constant {
     public static final String PID = "123456789";
     public static final String REGISTER_MESSAGE_SUCCESS = "Thank you for registering your account";
     public static final String CHANGE_PASSWORD_MESSAGE_SUCCESS = "Your password has been updated!";
+    public static final String INVALID_CONFIRM_PASSWORD = "a1234568789";
+    public static final String VALID_CONFIRM_PASSWORD = "a01645901060";
+    public static final String EMPTY_PASSWORD = "";
+    public static final String EMPTY_CONFIRM_PASSWORD = "";
+    public static final String EMPTY_PID = "";
+    public static final String PASSWORD_EMPTY_MESSAGE = "Invalid password length";
+    public static final String PID_EMPTY_MESSAGE = "Invalid ID length";
+    public static final String REGISTER_MESSAGE_FAILED = "There're errors in the form. Please correct the errors and try again.";
 }
