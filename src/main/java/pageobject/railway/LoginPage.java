@@ -8,11 +8,16 @@ public class LoginPage extends GeneralPage {
     private final String _txtPassword = "//input[@id='password']";
     private final String _btnLogin = "//input[@value='Login']";
     private final String _lblLoginError = "//p[@class='message error LoginForm']";
+    private final String linkForgotPassword = "//div[@id='content']//a[@href='/Account/ForgotPassword.cshtml']";
     private static LoginPage loginPage = null;
 
     public static LoginPage getNewInstance(){
         loginPage = new LoginPage();
         return loginPage;
+    }
+
+    public WebElement getLinkForgotPassword(){
+        return WebDriverManage.getInstance().findElementByXpath(linkForgotPassword);
     }
 
    public WebElement getTxtUsername(){
@@ -40,6 +45,10 @@ public class LoginPage extends GeneralPage {
        this.getTxtPassword().sendKeys(password);
        this.getBtnLogin().click();
        return new HomePage();
+   }
+
+   public void goToForgotPasswordPage(){
+        this.getLinkForgotPassword().click();
    }
 
    public Boolean checkLoginPageExist(){
