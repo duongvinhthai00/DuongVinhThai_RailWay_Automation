@@ -8,7 +8,7 @@ public class Constant {
     public static final String USERNAME="thai00458@gmail.com";
     public static final String VALID_PASSWORD="a01645901060";
     public static final String NEW_PASSWORD="a01645901060A";
-    public static final String PATH_DRIVER_DIRECTION = "D:\\DuongVinhThai_RailWay_Automation\\src\\main\\executables\\chromedriver.exe";
+    public static final String PATH_DRIVER_DIRECTION = "src\\main\\executables\\chromedriver.exe";
     public static final String WEB_DRIVER_KEY = "webdriver.chrome.driver";
     public static final String WELCOME_MSG = "Welcome %s";
     public static final String INVALID_LOGIN_MSG = "There was a problem with your login and/or errors exist in your form.";
