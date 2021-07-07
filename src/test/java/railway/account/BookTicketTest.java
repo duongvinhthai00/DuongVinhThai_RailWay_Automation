@@ -44,7 +44,7 @@ public class BookTicketTest extends TestBase {
         Assert.assertEquals(bookTicketPage.getCellTableBookTicket(7).getText(),Constant.TICKET_AMOUNT);
     }
 
-    @Test(description = "User can open \"Book ticket\" page by clicking on \"Book ticket\" link in \"Train timetable\" page")
+    @Test(description = "User can open Book ticket page by clicking on Book ticket link in Train timetable page")
     public void TC015(){
         homePage.goToLoginPage();
         loginPage.login(Constant.USERNAME,Constant.VALID_PASSWORD);
