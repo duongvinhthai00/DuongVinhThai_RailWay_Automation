@@ -67,4 +67,23 @@ public class WebDriverManage {
         return element;
     }
 
+    public WebElement findElementByName(String name) {
+        WebElement element = null;
+        try {
+            By elementLocator = By.name(name);
+            element = driver.findElement(elementLocator);
+        }catch (StaleElementReferenceException e){
+            element = null;
+            e.printStackTrace();
+        }catch (NoSuchElementException e1){
+            element = null;
+            e1.printStackTrace();
+        }
+        return element;
+    }
+
+    public void ScrollTo(WebElement element){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)",element);
+    }
+
 }

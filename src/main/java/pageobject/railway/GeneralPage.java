@@ -12,6 +12,7 @@ public class GeneralPage {
     private final String tabMyTicket = "//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']";
     private final String tabChangePassword = "//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']";
     private final String tabRegister = "//div[@id='menu']//a[@href='/Account/Register.cshtml']";
+    private final String tabTimeAble =  "//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']";
 
     private static GeneralPage generalPage = null;
 
@@ -22,6 +23,10 @@ public class GeneralPage {
 
     protected WebElement getTabMyTicket() {
         return WebDriverManage.getInstance().findElementByXpath(tabMyTicket);
+    }
+
+    protected WebElement getTabTimeAble() {
+        return WebDriverManage.getInstance().findElementByXpath(tabTimeAble);
     }
 
     protected WebElement getTabChangePassword() {
@@ -71,6 +76,10 @@ public class GeneralPage {
 
     public void gotoBookTicketPage() {
         this.getTabBookTicket().click();
+    }
+
+    public void gotoTimeAblePage() {
+        this.getTabTimeAble().click();
     }
 
     public boolean CheckTabDisplayAfterLogin() {

@@ -28,4 +28,16 @@ public class Constant {
     public static final String PASSWORD_EMPTY_MESSAGE = "Invalid password length";
     public static final String PID_EMPTY_MESSAGE = "Invalid ID length";
     public static final String REGISTER_MESSAGE_FAILED = "There're errors in the form. Please correct the errors and try again.";
+    public static final String DEPART_DATE = "7/20/2021";
+    public static final String DEPART_FROM = "Sài Gòn";
+    public static final String ARRIVE_AT = "Nha Trang";
+    public static final String SEAT_TYPE = "Soft bed with air conditioner";
+    public static final String TICKET_AMOUNT = "1";
+    public static final String BOOK_TICKET_SUCCESS_MESSAGE = "Ticket Booked Successfully!";
+    public static final String DEPART_FROM_TIME_ABLE = "Huế";
+    public static final String ARRIVE_AT_TIME_ABLE = "Sài Gòn";
+    public static final String DEPART_TIME = "7:30";
+    public static final String ARRIVE_TIME = "21:00";
+
+
 }
