@@ -21,39 +21,39 @@ public class RegisterPage extends GeneralPage {
         return registerPage;
     }
 
-    public WebElement getLblPasswordEmpty() {
+    private WebElement getLblPasswordEmpty() {
         return WebDriverManage.getInstance().findElementByXpath(lbl_Password_empty_message);
     }
 
-    public WebElement getLblPidEmpty() {
+    private WebElement getLblPidEmpty() {
         return WebDriverManage.getInstance().findElementByXpath(lbl_Pid_empty_message);
     }
 
-    public WebElement getFieldEmail() {
+    private WebElement getFieldEmail() {
         return WebDriverManage.getInstance().findElementById(txt_email_id);
     }
 
-    public WebElement getFieldPassword() {
+    private WebElement getFieldPassword() {
         return WebDriverManage.getInstance().findElementById(txt_password_id);
     }
 
-    public WebElement getFieldConfirmPassword() {
+    private WebElement getFieldConfirmPassword() {
         return WebDriverManage.getInstance().findElementById(txt_confirmPassword_id);
     }
 
-    public WebElement getFieldPID() {
+    private WebElement getFieldPID() {
         return WebDriverManage.getInstance().findElementById(txt_pid_id);
     }
 
-    public WebElement getBtnRegister() {
+    private WebElement getBtnRegister() {
         return WebDriverManage.getInstance().findElementByXpath(btn_Register);
     }
 
-    public WebElement getLblRegisterSuccess() {
+    private WebElement getLblRegisterSuccess() {
         return WebDriverManage.getInstance().findElementByXpath(lbl_Register_Successfully);
     }
 
-    public WebElement getLblRegisterFailed() {
+    private WebElement getLblRegisterFailed() {
         return WebDriverManage.getInstance().findElementByXpath(lbl_Register_failed);
     }
 

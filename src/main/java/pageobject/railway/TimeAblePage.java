@@ -12,7 +12,7 @@ public class TimeAblePage extends GeneralPage {
         return timeAblePage;
     }
 
-    public WebElement getTdTimeAble(String DepartFrom,String ArriveAt,String DepartTime,String ArriveTime){
+    private WebElement getTdTimeAble(String DepartFrom,String ArriveAt,String DepartTime,String ArriveTime){
         String tdTimeAble = String.format(this.tdTimeAble,DepartFrom,ArriveAt,DepartTime,ArriveTime);
         return WebDriverManage.getInstance().findElementByXpath(tdTimeAble);
     }

@@ -20,19 +20,19 @@ public class LoginPage extends GeneralPage {
         return WebDriverManage.getInstance().findElementByXpath(linkForgotPassword);
     }
 
-   public WebElement getTxtUsername(){
+    private WebElement getTxtUsername(){
        return WebDriverManage.getInstance().findElementByXpath(_txtUsername);
    }
 
-   public WebElement getTxtPassword(){
+    private WebElement getTxtPassword(){
         return WebDriverManage.getInstance().findElementByXpath(_txtPassword);
    }
 
-   public WebElement getBtnLogin(){
+    private WebElement getBtnLogin(){
         return WebDriverManage.getInstance().findElementByXpath(_btnLogin);
    }
 
-   public WebElement getLblLoginError(){
+    private WebElement getLblLoginError(){
         return WebDriverManage.getInstance().findElementByXpath(_lblLoginError);
    }
 

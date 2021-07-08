@@ -13,11 +13,11 @@ public class ForgotPasswordPage {
         return forgotPasswordPage;
     }
 
-    public WebElement getFieldEmailAddress() {
+    private WebElement getFieldEmailAddress() {
         return WebDriverManage.getInstance().findElementById(fieldEmailAddress);
     }
 
-    public WebElement getBtnSendInstructions() {
+    private WebElement getBtnSendInstructions() {
         return WebDriverManage.getInstance().findElementByXpath(btnSendInstructions);
     }
 

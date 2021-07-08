@@ -25,31 +25,31 @@ public class BookTicketPage extends GeneralPage {
         return WebDriverManage.getInstance().findElementByXpath(tdAfterBookTicketFormat).getText();
     }
 
-    public WebElement getLblBookTicketSuccess(){
+    private WebElement getLblBookTicketSuccess(){
         return WebDriverManage.getInstance().findElementByXpath(lblBookTicketSuccess);
     }
 
-    public Select getComboboxDepartDate(){
+    private Select getComboboxDepartDate(){
         Select comboboxDepartDate = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxDepartDate));
         return comboboxDepartDate;
     }
 
-    public Select getComboboxDepartFrom(){
+    private Select getComboboxDepartFrom(){
         Select comboboxDepartFrom = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxDepartFrom));
         return comboboxDepartFrom;
     }
 
-    public Select getComboboxArriveAt(){
+    private Select getComboboxArriveAt(){
         Select comboboxArriveAt = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxArriveAt));
         return comboboxArriveAt;
     }
 
-    public Select getComboboxSeatType(){
+    private Select getComboboxSeatType(){
         Select comboboxSeatType = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxSeatType));
         return comboboxSeatType;
     }
 
-    public Select getComboboxTicketAmount(){
+    private Select getComboboxTicketAmount(){
         Select comboboxTicketAmount = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxTicketAmount));
         return comboboxTicketAmount;
     }

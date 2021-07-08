@@ -15,27 +15,27 @@ public class ChangePasswordPage extends GeneralPage {
         return changePasswordPage;
     }
 
-    public WebElement getChangePasswordFieldById(String id){
+    private WebElement getChangePasswordFieldById(String id){
         return WebDriverManage.getInstance().getWebDriver().findElement(By.id(id));
     }
 
-    public WebElement getFieldCurrentPassword(){
+    private WebElement getFieldCurrentPassword(){
         return getChangePasswordFieldById("currentPassword");
     }
 
-    public WebElement getFieldNewPassword(){
+    private WebElement getFieldNewPassword(){
         return getChangePasswordFieldById("newPassword");
     }
 
-    public WebElement getFieldConfirmPassword(){
+    private WebElement getFieldConfirmPassword(){
         return getChangePasswordFieldById("confirmPassword");
     }
 
-    public WebElement getBtnChangePassword(){
+    private WebElement getBtnChangePassword(){
         return WebDriverManage.getInstance().findElementByXpath(btnChangePassword);
     }
 
-    public WebElement getLblChangePasswordSuccess(){
+    private WebElement getLblChangePasswordSuccess(){
         return WebDriverManage.getInstance().findElementByXpath(lblChangePasswordSuccess);
     }
 

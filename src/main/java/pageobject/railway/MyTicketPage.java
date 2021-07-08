@@ -14,7 +14,7 @@ public class MyTicketPage extends GeneralPage {
         return myTicketPage;
     }
 
-    public WebElement getTdMyTicketTable(String DepartDate,String DepartFrom,String ArriveAt,String SeatType,String Amount) {
+    private WebElement getTdMyTicketTable(String DepartDate,String DepartFrom,String ArriveAt,String SeatType,String Amount) {
         String tdMyTicketTable = String.format(this.tdMyTicketTable, DepartDate, DepartFrom, ArriveAt, SeatType, Amount);
         return WebDriverManage.getInstance().findElementByXpath(tdMyTicketTable);
     }
