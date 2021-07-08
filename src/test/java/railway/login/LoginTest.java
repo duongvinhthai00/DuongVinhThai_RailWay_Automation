@@ -10,10 +10,6 @@ import railway.TestBase;
 
 public class LoginTest extends TestBase {
 
-    HomePage homePage = HomePage.getNewInstance();
-    GeneralPage generalPage = GeneralPage.getNewInstance();
-    LoginPage loginPage = LoginPage.getNewInstance();
-
     @BeforeMethod
     public void beforeMethod() {
         homePage.open();
@@ -74,6 +70,7 @@ public class LoginTest extends TestBase {
     public void TC08(){
         homePage.goToLoginPage();
         loginPage.login(Constant.USERNAME,Constant.VALID_PASSWORD);
+        Assert.assertEquals(loginPage.isLoginErrorMessageExist(),true);
         Assert.assertEquals(loginPage.getLoginErrorMessage(),Constant.INVALID_USERNAME_PASSWORD);
 
     }

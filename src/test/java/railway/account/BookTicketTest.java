@@ -5,14 +5,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.railway.*;
+import pageobject.railway.BookTicketPage;
+import pageobject.railway.MyTicketPage;
+import pageobject.railway.TimeAblePage;
 import railway.TestBase;
 
 public class BookTicketTest extends TestBase {
 
-    HomePage homePage = HomePage.getNewInstance();
-    GeneralPage generalPage = GeneralPage.getNewInstance();
-    LoginPage loginPage = LoginPage.getNewInstance();
     BookTicketPage bookTicketPage = BookTicketPage.getNewInstance();
     TimeAblePage timeAblePage = TimeAblePage.getNewInstance();
     MyTicketPage myTicketPage = MyTicketPage.getNewInstance();

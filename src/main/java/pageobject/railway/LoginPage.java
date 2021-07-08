@@ -61,6 +61,13 @@ public class LoginPage extends GeneralPage {
         return true;
    }
 
+   public boolean isLoginErrorMessageExist(){
+        if (this.getLblLoginError() == null){
+            return false;
+        }
+        return true;
+   }
+
    public void loginInvalid(int numberRepeat,String UserName,String Password){
         for (int i = 0;i<numberRepeat;i++){
             login(UserName,Password);

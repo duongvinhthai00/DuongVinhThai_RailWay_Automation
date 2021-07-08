@@ -3,16 +3,9 @@ package railway.InterfaceTest;
 import constant.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageobject.railway.GeneralPage;
-import pageobject.railway.HomePage;
-import pageobject.railway.LoginPage;
 import railway.TestBase;
 
 public class DisplayTest extends TestBase {
-
-    HomePage homePage = HomePage.getNewInstance();
-    GeneralPage generalPage = GeneralPage.getNewInstance();
-    LoginPage loginPage = LoginPage.getNewInstance();
 
 
     @Test(description = "Additional pages display once user logged in")

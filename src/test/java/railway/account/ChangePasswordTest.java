@@ -3,14 +3,11 @@ package railway.account;
 import constant.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageobject.railway.*;
+import pageobject.railway.ChangePasswordPage;
 import railway.TestBase;
 
 public class ChangePasswordTest extends TestBase {
 
-    HomePage homePage = HomePage.getNewInstance();
-    GeneralPage generalPage = GeneralPage.getNewInstance();
-    LoginPage loginPage = LoginPage.getNewInstance();
     ChangePasswordPage changePasswordPage = ChangePasswordPage.getNewInstance();
 
     @Test(description = "User can change password")

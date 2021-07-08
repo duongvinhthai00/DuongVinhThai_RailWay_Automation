@@ -5,14 +5,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.railway.*;
+import pageobject.railway.RegisterPage;
 import railway.TestBase;
 
 public class RegisterTest extends TestBase {
 
-    HomePage homePage = HomePage.getNewInstance();
     RegisterPage registerPage = RegisterPage.getNewInstance();
-    GeneralPage generalPage = GeneralPage.getNewInstance();
 
     @BeforeMethod
     public void beforeMethod() {
