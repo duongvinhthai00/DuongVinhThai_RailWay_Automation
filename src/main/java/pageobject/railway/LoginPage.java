@@ -43,6 +43,7 @@ public class LoginPage extends GeneralPage {
    public HomePage login(String username,String password){
        this.getTxtUsername().sendKeys(username);
        this.getTxtPassword().sendKeys(password);
+       WebDriverManage.getInstance().ScrollTo(this.getBtnLogin());
        this.getBtnLogin().click();
        return new HomePage();
    }
