@@ -20,9 +20,9 @@ public class BookTicketPage extends GeneralPage {
         return bookTicketPage;
     }
 
-    public WebElement getCellTableBookTicket(int i){
-        String tdAfterBookTicketFormat = String.format(tdAfterBookTicket,i);
-        return WebDriverManage.getInstance().findElementByXpath(tdAfterBookTicketFormat);
+    public String getCellTextTableBookTicket(int position){
+        String tdAfterBookTicketFormat = String.format(tdAfterBookTicket,position);
+        return WebDriverManage.getInstance().findElementByXpath(tdAfterBookTicketFormat).getText();
     }
 
     public WebElement getLblBookTicketSuccess(){
@@ -52,6 +52,14 @@ public class BookTicketPage extends GeneralPage {
     public Select getComboboxTicketAmount(){
         Select comboboxTicketAmount = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxTicketAmount));
         return comboboxTicketAmount;
+    }
+
+    public String getDepartFromSelectText(){
+        return this.getComboboxDepartFrom().getFirstSelectedOption().getText();
+    }
+
+    public String getArriveAtSelectText(){
+        return this.getComboboxArriveAt().getFirstSelectedOption().getText();
     }
 
     public WebElement getBtnBookTicket(){

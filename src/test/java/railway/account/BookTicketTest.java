@@ -36,11 +36,11 @@ public class BookTicketTest extends TestBase {
         homePage.gotoBookTicketPage();
         bookTicketPage.BookTicket(Constant.DEPART_DATE,Constant.DEPART_FROM,Constant.ARRIVE_AT,Constant.SEAT_TYPE,Constant.TICKET_AMOUNT);
         Assert.assertEquals(bookTicketPage.getBookTicketSuccessMessage(),Constant.BOOK_TICKET_SUCCESS_MESSAGE);
-        Assert.assertEquals(bookTicketPage.getCellTableBookTicket(1).getText(),Constant.DEPART_FROM);
-        Assert.assertEquals(bookTicketPage.getCellTableBookTicket(2).getText(),Constant.ARRIVE_AT);
-        Assert.assertEquals(bookTicketPage.getCellTableBookTicket(3).getText(),Constant.SEAT_TYPE);
-        Assert.assertEquals(bookTicketPage.getCellTableBookTicket(4).getText(),Constant.DEPART_DATE);
-        Assert.assertEquals(bookTicketPage.getCellTableBookTicket(7).getText(),Constant.TICKET_AMOUNT);
+        Assert.assertEquals(bookTicketPage.getCellTextTableBookTicket(1),Constant.DEPART_FROM);
+        Assert.assertEquals(bookTicketPage.getCellTextTableBookTicket(2),Constant.ARRIVE_AT);
+        Assert.assertEquals(bookTicketPage.getCellTextTableBookTicket(3),Constant.SEAT_TYPE);
+        Assert.assertEquals(bookTicketPage.getCellTextTableBookTicket(4),Constant.DEPART_DATE);
+        Assert.assertEquals(bookTicketPage.getCellTextTableBookTicket(7),Constant.TICKET_AMOUNT);
     }
 
     @Test(description = "User can open Book ticket page by clicking on Book ticket link in Train timetable page")
@@ -49,8 +49,8 @@ public class BookTicketTest extends TestBase {
         loginPage.login(Constant.USERNAME,Constant.VALID_PASSWORD);
         homePage.gotoTimeAblePage();
         timeAblePage.BookTicketFromTimeAble(Constant.DEPART_FROM_TIME_ABLE,Constant.ARRIVE_AT_TIME_ABLE,Constant.DEPART_TIME,Constant.ARRIVE_TIME);
-        Assert.assertEquals(bookTicketPage.getComboboxDepartFrom().getFirstSelectedOption().getText(),Constant.DEPART_FROM_TIME_ABLE);
-        Assert.assertEquals(bookTicketPage.getComboboxArriveAt().getFirstSelectedOption().getText(),Constant.ARRIVE_AT_TIME_ABLE);
+        Assert.assertEquals(bookTicketPage.getDepartFromSelectText(),Constant.DEPART_FROM_TIME_ABLE);
+        Assert.assertEquals(bookTicketPage.getArriveAtSelectText(),Constant.ARRIVE_AT_TIME_ABLE);
     }
 
     @Test(description = "User can cancel a ticket")
