@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" verbose="0" name="Failed suite [Surefire suite]">
+  <test thread-count="1" verbose="0" name="Surefire test(failed)">
+    <classes>
+      <class name="railway.account.RegisterTest">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
+          <include name="TC07"/>
+        </methods>
+      </class> <!-- railway.account.RegisterTest -->
+      <class name="railway.account.ForgotPasswordTest">
+        <methods>
+          <include name="TC012"/>
+          <include name="TC013"/>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- railway.account.ForgotPasswordTest -->
+      <class name="railway.login.LoginTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="afterClass"/>
+          <include name="TC05"/>
+          <include name="TC08"/>
+          <include name="beforeMethod"/>
+          <include name="TC01"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- railway.login.LoginTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

@@ -1,0 +1,7 @@
+railway\InterfaceTest\DisplayTest.class
+railway\login\LoginTest.class
+railway\account\ChangePasswordTest.class
+railway\account\ForgotPasswordTest.class
+railway\account\BookTicketTest.class
+railway\account\RegisterTest.class
+railway\TestBase.class

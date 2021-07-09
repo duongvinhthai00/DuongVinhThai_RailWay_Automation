@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="E:/DuongVinhThai_RailWay_Automation">
+        <classes>
+            <class name="railway.InterfaceTest.DisplayTest">
+                <methods>
+                    <include name="TC06"/>
+                </methods>
+            </class>
+            <class name="railway.account.BookTicketTest">
+                <methods>
+                    <include name="TC014"/>
+                    <include name="TC015"/>
+                    <include name="TC016"/>
+                </methods>
+            </class>
+            <class name="railway.account.ChangePasswordTest">
+                <methods>
+                    <include name="TC09"/>
+                </methods>
+            </class>
+            <class name="railway.account.ForgotPasswordTest">
+                <methods>
+                    <include name="TC012"/>
+                    <include name="TC013"/>
+                </methods>
+            </class>
+            <class name="railway.account.RegisterTest">
+                <methods>
+                    <include name="TC07"/>
+                    <include name="TC10"/>
+                    <include name="TC11"/>
+                </methods>
+            </class>
+            <class name="railway.login.LoginTest">
+                <methods>
+                    <include name="TC01"/>
+                    <include name="TC02"/>
+                    <include name="TC03"/>
+                    <include name="TC04"/>
+                    <include name="TC05"/>
+                    <include name="TC08"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
