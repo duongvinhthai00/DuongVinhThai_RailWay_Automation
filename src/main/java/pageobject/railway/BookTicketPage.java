@@ -76,6 +76,7 @@ public class BookTicketPage extends GeneralPage {
         this.getComboboxArriveAt().selectByVisibleText(ArriveAt);
         this.getComboboxSeatType().selectByVisibleText(SeatType);
         this.getComboboxTicketAmount().selectByVisibleText(TicketAmount);
+        WebDriverManage.getInstance().ScrollTo(this.getBtnBookTicket());
         this.getBtnBookTicket().click();
     }
 }

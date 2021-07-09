@@ -44,9 +44,13 @@ public class ChangePasswordPage extends GeneralPage {
     }
 
     public void changePassword(String password,String newPassword){
+        WebDriverManage.getInstance().ScrollTo(this.getFieldCurrentPassword());
         this.getFieldCurrentPassword().sendKeys(password);
+        WebDriverManage.getInstance().ScrollTo(this.getFieldNewPassword());
         this.getFieldNewPassword().sendKeys(newPassword);
+        WebDriverManage.getInstance().ScrollTo(this.getFieldConfirmPassword());
         this.getFieldConfirmPassword().sendKeys(newPassword);
+        WebDriverManage.getInstance().ScrollTo(this.getBtnChangePassword());
         this.getBtnChangePassword().click();
     }
 }

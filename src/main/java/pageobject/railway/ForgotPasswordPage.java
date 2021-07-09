@@ -22,7 +22,9 @@ public class ForgotPasswordPage {
     }
 
     public void SendRequestResetPassword(String email) {
+        WebDriverManage.getInstance().ScrollTo(this.getFieldEmailAddress());
         this.getFieldEmailAddress().sendKeys(email);
+        WebDriverManage.getInstance().ScrollTo(this.getBtnSendInstructions());
         this.getBtnSendInstructions().click();
     }
 

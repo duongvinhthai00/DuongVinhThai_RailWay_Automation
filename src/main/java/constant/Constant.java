@@ -16,7 +16,7 @@ public class Constant {
     public static final String INVALID_USERNAME_PASSWORD = "Invalid username or password. Please try again.";
     public static final String LOGIN_PAGE_NOT_EXIST = "Login Page Is Not Exist.";
     public static final String MSG_LOGIN_ERROR_SEVERAL_TIME = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
-    public static String EMAIL_RANDOM = RandomStringUtils.randomAlphabetic(8)+ "@gmail.com";
+    public static String EMAIL_RANDOM = "test+" + RandomStringUtils.randomAlphabetic(8)+ "@gmail.com";
     public static final String PID = "123456789";
     public static final String REGISTER_MESSAGE_SUCCESS = "Thank you for registering your account";
     public static final String CHANGE_PASSWORD_MESSAGE_SUCCESS = "Your password has been updated!";

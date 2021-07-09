@@ -74,10 +74,15 @@ public class RegisterPage extends GeneralPage {
     }
 
     public void Register(String email, String password, String confirmPassword, String pid) {
+        WebDriverManage.getInstance().ScrollTo(this.getFieldEmail());
         this.getFieldEmail().sendKeys(email);
+        WebDriverManage.getInstance().ScrollTo(this.getFieldPassword());
         this.getFieldPassword().sendKeys(password);
+        WebDriverManage.getInstance().ScrollTo(this.getFieldConfirmPassword());
         this.getFieldConfirmPassword().sendKeys(confirmPassword);
+        WebDriverManage.getInstance().ScrollTo(this.getFieldPID());
         this.getFieldPID().sendKeys(pid);
+        WebDriverManage.getInstance().ScrollTo(this.getBtnRegister());
         this.getBtnRegister().click();
         System.out.println("Your UserName/Email : " + email);
         System.out.println("Your Password : " + password);
