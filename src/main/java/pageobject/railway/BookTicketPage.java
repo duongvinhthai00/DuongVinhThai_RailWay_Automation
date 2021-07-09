@@ -11,7 +11,7 @@ public class BookTicketPage extends GeneralPage {
     private String comboboxSeatType = "SeatType";
     private String comboboxTicketAmount = "TicketAmount";
     private String btnBookTicket = "//div[@id='content']//form//input[@type='submit']";
-    private String lblBookTicketSuccess = "//div[@id='content']//h1";
+    private String lblBookTicketSuccess = "//div[@id='content']//h1[contains(.,'Booked Successfully')]";
     private String tdAfterBookTicket = "//div[@id='content']//table//tr[@class='OddRow']//td[%d]";
     private static BookTicketPage bookTicketPage = null;
 
