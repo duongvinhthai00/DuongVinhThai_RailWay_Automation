@@ -1,65 +1,57 @@
 package pageobject.railway;
 
 import common.WebDriverManage;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+
 
 public class GeneralPage {
-    private final String tabLogin = "//div[@id='menu']//a[@href='/Account/Login.cshtml']";
-    private final String tabLogout = "//div[@id='menu']//a[@href='/Account/Logout']";
-    private final String lblWelcomeMessages = "//div[@class='account']/strong";
-    private final String tabBookTicket = "//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']";
-    private final String tabMyTicket = "//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']";
-    private final String tabChangePassword = "//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']";
-    private final String tabRegister = "//div[@id='menu']//a[@href='/Account/Register.cshtml']";
-    private final String tabTimeAble =  "//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']";
-
-    private static GeneralPage generalPage = null;
-
-    public static GeneralPage getNewInstance() {
-        generalPage = new GeneralPage();
-        return generalPage;
-    }
+    private final By tabLogin = By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
+    private final By tabLogout = By.xpath("//div[@id='menu']//a[@href='/Account/Logout']");
+    private final By lblWelcomeMessages = By.xpath("//div[@class='account']/strong");
+    private final By tabBookTicket = By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']");
+    private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
+    private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
+    private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
+    private final By tabTimeAble =  By.xpath("//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']");
 
     protected WebElement getTabMyTicket() {
-        return WebDriverManage.getInstance().findElementByXpath(tabMyTicket);
+        return WebDriverManage.getInstance().getDriver().findElement(tabMyTicket);
     }
 
     protected WebElement getTabTimeAble() {
-        return WebDriverManage.getInstance().findElementByXpath(tabTimeAble);
+        return WebDriverManage.getInstance().getDriver().findElement(tabTimeAble);
     }
 
     protected WebElement getTabChangePassword() {
-        return WebDriverManage.getInstance().findElementByXpath(tabChangePassword);
+        return WebDriverManage.getInstance().getDriver().findElement(tabChangePassword);
     }
 
     protected WebElement getTabRegister() {
-        return WebDriverManage.getInstance().findElementByXpath(tabRegister);
+        return WebDriverManage.getInstance().getDriver().findElement(tabRegister);
     }
 
     protected WebElement getTabLogin() {
-        return WebDriverManage.getInstance().findElementByXpath(tabLogin);
+        return WebDriverManage.getInstance().getDriver().findElement(tabLogin);
     }
 
     protected WebElement getTabLogout() {
-        return WebDriverManage.getInstance().findElementByXpath(tabLogout);
+        return WebDriverManage.getInstance().getDriver().findElement(tabLogout);
     }
 
     protected WebElement getLblWelcomeMessages() {
-        return WebDriverManage.getInstance().findElementByXpath(lblWelcomeMessages);
+        return WebDriverManage.getInstance().getDriver().findElement(lblWelcomeMessages);
     }
 
     protected WebElement getTabBookTicket() {
-        return WebDriverManage.getInstance().findElementByXpath(tabBookTicket);
+        return WebDriverManage.getInstance().getDriver().findElement(tabBookTicket);
     }
 
     public String getWelcomeMessage() {
         return this.getLblWelcomeMessages().getText();
     }
 
-    public LoginPage goToLoginPage() {
+    public void goToLoginPage() {
         this.getTabLogin().click();
-        return new LoginPage();
     }
 
     public void goToMyTicketPage() {
@@ -90,7 +82,7 @@ public class GeneralPage {
     }
 
     public boolean CheckPageOpen(String pageName) {
-        String Title = WebDriverManage.getInstance().getWebDriver().getTitle();
+        String Title = WebDriverManage.getInstance().getDriver().getTitle();
         if (Title.contains(pageName)) {
             return true;
         }
@@ -98,9 +90,12 @@ public class GeneralPage {
     }
 
     public boolean CheckTabLogoutExist(){
-        if (getTabLogout() != null){
+        try {
+            getTabLogout();
             return true;
+        }catch (NoSuchElementException error){
+            return false;
         }
-        return false;
     }
+
 }

@@ -6,17 +6,12 @@ import org.openqa.selenium.WebElement;
 
 public class ChangePasswordPage extends GeneralPage {
 
-    private String lblChangePasswordSuccess = "//form[@id='ChangePW']//p[@class='message success']";
-    private String btnChangePassword = "//form[@id='ChangePW']//input[@type='submit']";
+    private By lblChangePasswordSuccess = By.xpath("//form[@id='ChangePW']//p[@class='message success']");
+    private By btnChangePassword = By.xpath("//form[@id='ChangePW']//input[@type='submit']");
     private static ChangePasswordPage changePasswordPage = null;
 
-    public static ChangePasswordPage getNewInstance(){
-        changePasswordPage = new ChangePasswordPage();
-        return changePasswordPage;
-    }
-
     private WebElement getChangePasswordFieldById(String id){
-        return WebDriverManage.getInstance().getWebDriver().findElement(By.id(id));
+        return WebDriverManage.getInstance().getDriver().findElement(By.id(id));
     }
 
     private WebElement getFieldCurrentPassword(){
@@ -32,11 +27,11 @@ public class ChangePasswordPage extends GeneralPage {
     }
 
     private WebElement getBtnChangePassword(){
-        return WebDriverManage.getInstance().findElementByXpath(btnChangePassword);
+        return WebDriverManage.getInstance().getDriver().findElement(btnChangePassword);
     }
 
     private WebElement getLblChangePasswordSuccess(){
-        return WebDriverManage.getInstance().findElementByXpath(lblChangePasswordSuccess);
+        return WebDriverManage.getInstance().getDriver().findElement(lblChangePasswordSuccess);
     }
 
     public String getChangePasswordSuccessMessage(){

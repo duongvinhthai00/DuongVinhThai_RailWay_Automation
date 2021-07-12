@@ -1,56 +1,52 @@
 package pageobject.railway;
 
 import common.WebDriverManage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class BookTicketPage extends GeneralPage {
-    private String comboboxDepartDate = "Date";
-    private String comboboxDepartFrom = "DepartStation";
-    private String comboboxArriveAt = "ArriveStation";
-    private String comboboxSeatType = "SeatType";
-    private String comboboxTicketAmount = "TicketAmount";
-    private String btnBookTicket = "//div[@id='content']//form//input[@type='submit']";
-    private String lblBookTicketSuccess = "//div[@id='content']//h1[contains(.,'Booked Successfully')]";
+    private By comboboxDepartDate = By.name("Date");
+    private By comboboxDepartFrom = By.name("DepartStation") ;
+    private By comboboxArriveAt =  By.name("ArriveStation");
+    private By comboboxSeatType = By.name("SeatType");
+    private By comboboxTicketAmount = By.name("TicketAmount");
+    private By btnBookTicket = By.xpath("//div[@id='content']//form//input[@type='submit']");
+    private By lblBookTicketSuccess = By.xpath("//div[@id='content']//h1[contains(.,'Booked Successfully')]");
     private String tdAfterBookTicket = "//div[@id='content']//table//tr[@class='OddRow']//td[%d]";
     private static BookTicketPage bookTicketPage = null;
 
-    public static BookTicketPage getNewInstance(){
-        bookTicketPage = new BookTicketPage();
-        return bookTicketPage;
-    }
-
     public String getCellTextTableBookTicket(int position){
-        String tdAfterBookTicketFormat = String.format(tdAfterBookTicket,position);
-        return WebDriverManage.getInstance().findElementByXpath(tdAfterBookTicketFormat).getText();
+        By tdAfterBookTicketFormat = By.xpath(String.format(tdAfterBookTicket,position));
+        return WebDriverManage.getInstance().getDriver().findElement(tdAfterBookTicketFormat).getText();
     }
 
     private WebElement getLblBookTicketSuccess(){
-        return WebDriverManage.getInstance().findElementByXpath(lblBookTicketSuccess);
+        return WebDriverManage.getInstance().getDriver().findElement(lblBookTicketSuccess);
     }
 
     private Select getComboboxDepartDate(){
-        Select comboboxDepartDate = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxDepartDate));
+        Select comboboxDepartDate = new Select(WebDriverManage.getInstance().getDriver().findElement(this.comboboxDepartDate));
         return comboboxDepartDate;
     }
 
     private Select getComboboxDepartFrom(){
-        Select comboboxDepartFrom = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxDepartFrom));
+        Select comboboxDepartFrom = new Select(WebDriverManage.getInstance().getDriver().findElement(this.comboboxDepartFrom));
         return comboboxDepartFrom;
     }
 
     private Select getComboboxArriveAt(){
-        Select comboboxArriveAt = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxArriveAt));
+        Select comboboxArriveAt = new Select(WebDriverManage.getInstance().getDriver().findElement(this.comboboxArriveAt));
         return comboboxArriveAt;
     }
 
     private Select getComboboxSeatType(){
-        Select comboboxSeatType = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxSeatType));
+        Select comboboxSeatType = new Select(WebDriverManage.getInstance().getDriver().findElement(this.comboboxSeatType));
         return comboboxSeatType;
     }
 
     private Select getComboboxTicketAmount(){
-        Select comboboxTicketAmount = new Select(WebDriverManage.getInstance().findElementByName(this.comboboxTicketAmount));
+        Select comboboxTicketAmount = new Select(WebDriverManage.getInstance().getDriver().findElement(this.comboboxTicketAmount));
         return comboboxTicketAmount;
     }
 
@@ -63,7 +59,7 @@ public class BookTicketPage extends GeneralPage {
     }
 
     public WebElement getBtnBookTicket(){
-        return WebDriverManage.getInstance().findElementByXpath(btnBookTicket);
+        return WebDriverManage.getInstance().getDriver().findElement(btnBookTicket);
     }
 
     public String getBookTicketSuccessMessage(){

@@ -2,6 +2,8 @@ package railway;
 
 import common.WebDriverManage;
 import constant.Constant;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pageobject.railway.GeneralPage;
@@ -10,20 +12,22 @@ import pageobject.railway.LoginPage;
 
 public class TestBase {
 
-    protected HomePage homePage = HomePage.getNewInstance();
-    protected GeneralPage generalPage = GeneralPage.getNewInstance();
-    protected LoginPage loginPage = LoginPage.getNewInstance();
-
+    WebDriverManage webDriverManage = WebDriverManage.getInstance();
+    protected GeneralPage generalPage = new GeneralPage();
+    protected HomePage homePage = new HomePage();
+    protected LoginPage loginPage = new LoginPage();
+    WebDriver driver;
     @BeforeClass
     public void beforeClass(){
-        WebDriverManage.getInstance().setDriverProperty(Constant.WEB_DRIVER_KEY,Constant.PATH_DRIVER_DIRECTION);
-        WebDriverManage.getInstance().newWebDriver();
-        WebDriverManage.getInstance().maximizeBrowser();
+        System.setProperty(Constant.WEB_DRIVER_KEY,Constant.PATH_DRIVER_DIRECTION);
+        this.driver = new ChromeDriver();
+        webDriverManage.setDriver(driver);
+        this.driver.manage().window().maximize();
     }
 
     @AfterClass
     public void afterClass(){
-        WebDriverManage.getInstance().closeBrowser();
+        WebDriverManage.getInstance().getDriver().quit();
     }
 
 }

@@ -2,15 +2,22 @@ package railway.InterfaceTest;
 
 import constant.Constant;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pageobject.railway.HomePage;
+import pageobject.railway.LoginPage;
 import railway.TestBase;
 
 public class DisplayTest extends TestBase {
 
+    @BeforeMethod
+    public void beforeMethod(){
+        homePage.open();
+    }
 
     @Test(description = "Additional pages display once user logged in")
     public void TC06() {
-        homePage.open();
         homePage.goToLoginPage();
         loginPage.login(Constant.USERNAME, Constant.VALID_PASSWORD);
         Assert.assertEquals(generalPage.CheckTabDisplayAfterLogin(), true);
@@ -18,11 +25,9 @@ public class DisplayTest extends TestBase {
         Assert.assertEquals(generalPage.CheckPageOpen("My Ticket"), true);
         homePage.goToChangePasswordPage();
         Assert.assertEquals(generalPage.CheckPageOpen("Change Password"), true);
-        if (generalPage.CheckTabLogoutExist()){
+        if (generalPage.CheckTabLogoutExist()) {
             homePage.Logout();
         }
     }
-
-
 
 }

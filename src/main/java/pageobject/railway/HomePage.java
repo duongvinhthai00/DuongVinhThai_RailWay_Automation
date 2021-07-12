@@ -4,20 +4,15 @@ import common.WebDriverManage;
 import constant.Constant;
 
 public class HomePage extends GeneralPage {
-    private static HomePage homePage = null;
 
-    public static HomePage getNewInstance(){
-        homePage = new HomePage();
-        return homePage;
-    }
-
-    public HomePage open(){
-        WebDriverManage.getInstance().getWebDriver().navigate().to(Constant.RAILWAY_URL);
+    public HomePage open() {
+        System.out.println(WebDriverManage.getInstance().getDriver());
+        WebDriverManage.getInstance().getDriver().navigate().to(Constant.RAILWAY_URL);
         return this;
     }
 
-    public void Logout(){
-        if(getTabLogout() != null){
+    public void Logout() {
+        if (getTabLogout() != null) {
             getTabLogout().click();
         }
     }
