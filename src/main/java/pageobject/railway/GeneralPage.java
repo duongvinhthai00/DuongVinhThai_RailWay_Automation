@@ -15,35 +15,35 @@ public class GeneralPage {
     private final By tabTimeAble =  By.xpath("//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']");
 
     protected WebElement getTabMyTicket() {
-        return WebDriverManage.getInstance().getDriver().findElement(tabMyTicket);
+        return WebDriverManage.getDriver().findElement(tabMyTicket);
     }
 
     protected WebElement getTabTimeAble() {
-        return WebDriverManage.getInstance().getDriver().findElement(tabTimeAble);
+        return WebDriverManage.getDriver().findElement(tabTimeAble);
     }
 
     protected WebElement getTabChangePassword() {
-        return WebDriverManage.getInstance().getDriver().findElement(tabChangePassword);
+        return WebDriverManage.getDriver().findElement(tabChangePassword);
     }
 
     protected WebElement getTabRegister() {
-        return WebDriverManage.getInstance().getDriver().findElement(tabRegister);
+        return WebDriverManage.getDriver().findElement(tabRegister);
     }
 
     protected WebElement getTabLogin() {
-        return WebDriverManage.getInstance().getDriver().findElement(tabLogin);
+        return WebDriverManage.getDriver().findElement(tabLogin);
     }
 
     protected WebElement getTabLogout() {
-        return WebDriverManage.getInstance().getDriver().findElement(tabLogout);
+        return WebDriverManage.getDriver().findElement(tabLogout);
     }
 
     protected WebElement getLblWelcomeMessages() {
-        return WebDriverManage.getInstance().getDriver().findElement(lblWelcomeMessages);
+        return WebDriverManage.getDriver().findElement(lblWelcomeMessages);
     }
 
     protected WebElement getTabBookTicket() {
-        return WebDriverManage.getInstance().getDriver().findElement(tabBookTicket);
+        return WebDriverManage.getDriver().findElement(tabBookTicket);
     }
 
     public String getWelcomeMessage() {
@@ -82,7 +82,7 @@ public class GeneralPage {
     }
 
     public boolean CheckPageOpen(String pageName) {
-        String Title = WebDriverManage.getInstance().getDriver().getTitle();
+        String Title = WebDriverManage.getDriver().getTitle();
         if (Title.contains(pageName)) {
             return true;
         }

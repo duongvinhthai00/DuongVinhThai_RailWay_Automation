@@ -18,39 +18,39 @@ public class RegisterPage extends GeneralPage {
     private static RegisterPage registerPage = null;
 
     private WebElement getLblPasswordEmpty() {
-        return WebDriverManage.getInstance().getDriver().findElement(lbl_Password_empty_message);
+        return WebDriverManage.getDriver().findElement(lbl_Password_empty_message);
     }
 
     private WebElement getLblPidEmpty() {
-        return WebDriverManage.getInstance().getDriver().findElement(lbl_Pid_empty_message);
+        return WebDriverManage.getDriver().findElement(lbl_Pid_empty_message);
     }
 
     private WebElement getFieldEmail() {
-        return WebDriverManage.getInstance().getDriver().findElement(txt_email_id);
+        return WebDriverManage.getDriver().findElement(txt_email_id);
     }
 
     private WebElement getFieldPassword() {
-        return WebDriverManage.getInstance().getDriver().findElement(txt_password_id);
+        return WebDriverManage.getDriver().findElement(txt_password_id);
     }
 
     private WebElement getFieldConfirmPassword() {
-        return WebDriverManage.getInstance().getDriver().findElement(txt_confirmPassword_id);
+        return WebDriverManage.getDriver().findElement(txt_confirmPassword_id);
     }
 
     private WebElement getFieldPID() {
-        return WebDriverManage.getInstance().getDriver().findElement(txt_pid_id);
+        return WebDriverManage.getDriver().findElement(txt_pid_id);
     }
 
     private WebElement getBtnRegister() {
-        return WebDriverManage.getInstance().getDriver().findElement(btn_Register);
+        return WebDriverManage.getDriver().findElement(btn_Register);
     }
 
     private WebElement getLblRegisterSuccess() {
-        return WebDriverManage.getInstance().getDriver().findElement(lbl_Register_Successfully);
+        return WebDriverManage.getDriver().findElement(lbl_Register_Successfully);
     }
 
     private WebElement getLblRegisterFailed() {
-        return WebDriverManage.getInstance().getDriver().findElement(lbl_Register_failed);
+        return WebDriverManage.getDriver().findElement(lbl_Register_failed);
     }
 
     public String getRegisterSuccessMessage() {
@@ -70,15 +70,15 @@ public class RegisterPage extends GeneralPage {
     }
 
     public void Register(String email, String password, String confirmPassword, String pid) {
-        WebDriverManage.getInstance().ScrollTo(this.getFieldEmail());
+        WebDriverManage.ScrollTo(this.getFieldEmail());
         this.getFieldEmail().sendKeys(email);
-        WebDriverManage.getInstance().ScrollTo(this.getFieldPassword());
+        WebDriverManage.ScrollTo(this.getFieldPassword());
         this.getFieldPassword().sendKeys(password);
-        WebDriverManage.getInstance().ScrollTo(this.getFieldConfirmPassword());
+        WebDriverManage.ScrollTo(this.getFieldConfirmPassword());
         this.getFieldConfirmPassword().sendKeys(confirmPassword);
-        WebDriverManage.getInstance().ScrollTo(this.getFieldPID());
+        WebDriverManage.ScrollTo(this.getFieldPID());
         this.getFieldPID().sendKeys(pid);
-        WebDriverManage.getInstance().ScrollTo(this.getBtnRegister());
+        WebDriverManage.ScrollTo(this.getBtnRegister());
         this.getBtnRegister().click();
         System.out.println("Your UserName/Email : " + email);
         System.out.println("Your Password : " + password);

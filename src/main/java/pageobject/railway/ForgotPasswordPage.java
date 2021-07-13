@@ -10,17 +10,17 @@ public class ForgotPasswordPage extends GeneralPage {
     private static ForgotPasswordPage forgotPasswordPage = null;
 
     private WebElement getFieldEmailAddress() {
-        return WebDriverManage.getInstance().getDriver().findElement(fieldEmailAddress);
+        return WebDriverManage.getDriver().findElement(fieldEmailAddress);
     }
 
     private WebElement getBtnSendInstructions() {
-        return WebDriverManage.getInstance().getDriver().findElement(btnSendInstructions);
+        return WebDriverManage.getDriver().findElement(btnSendInstructions);
     }
 
     public void SendRequestResetPassword(String email) {
-        WebDriverManage.getInstance().ScrollTo(this.getFieldEmailAddress());
+        WebDriverManage.ScrollTo(this.getFieldEmailAddress());
         this.getFieldEmailAddress().sendKeys(email);
-        WebDriverManage.getInstance().ScrollTo(this.getBtnSendInstructions());
+        WebDriverManage.ScrollTo(this.getBtnSendInstructions());
         this.getBtnSendInstructions().click();
     }
 

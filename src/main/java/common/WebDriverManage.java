@@ -3,26 +3,30 @@ package common;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebDriverManage {
-    private WebDriver driver;
-    private static WebDriverManage webDriverManage = null;
-    public static WebDriverManage getInstance(){
-        if (webDriverManage == null) {
-            return webDriverManage = new WebDriverManage();
-        }
-        return webDriverManage;
+
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+
+    public static void setDriver() {
+        System.setProperty("webdriver.chrome.driver","src\\main\\executables\\chromedriver.exe");
+        driver.set(new ChromeDriver());
     }
 
-    public WebDriver getDriver() {
-        return driver;
+    public static WebDriver getDriver()
+    {
+        return driver.get();
     }
 
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
+    public static void closeBrowser()
+    {
+        driver.get().close();
+        driver.remove();
     }
 
-    public void ScrollTo(WebElement element){
-        ((JavascriptExecutor) WebDriverManage.getInstance().getDriver()).executeScript("arguments[0].scrollIntoView(true)",element);
+
+    public static void ScrollTo(WebElement element){
+        ((JavascriptExecutor) WebDriverManage.getDriver()).executeScript("arguments[0].scrollIntoView(true)",element);
     }
 }

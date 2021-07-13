@@ -9,13 +9,13 @@ public class MyTicketPage extends GeneralPage {
 
     private WebElement getTdMyTicketTable(String DepartDate, String DepartFrom, String ArriveAt, String SeatType, String Amount) {
         By tdMyTicketTable = By.xpath(String.format(this.tdMyTicketTable, DepartDate, DepartFrom, ArriveAt, SeatType, Amount));
-        return WebDriverManage.getInstance().getDriver().findElement(tdMyTicketTable);
+        return WebDriverManage.getDriver().findElement(tdMyTicketTable);
     }
 
     public void cancelTicket(String DepartDate, String DepartFrom, String ArriveAt, String SeatType, String Amount) {
-        WebDriverManage.getInstance().ScrollTo(this.getTdMyTicketTable(DepartFrom, ArriveAt, SeatType, DepartDate, Amount));
+        WebDriverManage.ScrollTo(this.getTdMyTicketTable(DepartFrom, ArriveAt, SeatType, DepartDate, Amount));
         this.getTdMyTicketTable(DepartFrom, ArriveAt, SeatType, DepartDate, Amount).click();
-        WebDriverManage.getInstance().getDriver().switchTo().alert().accept();
+        WebDriverManage.getDriver().switchTo().alert().accept();
     }
 
     public boolean CancelTicketDisappeared(String DepartDate, String DepartFrom, String ArriveAt, String SeatType, String Amount) {

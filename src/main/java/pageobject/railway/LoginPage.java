@@ -3,7 +3,6 @@ package pageobject.railway;
 import common.WebDriverManage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends GeneralPage {
@@ -15,23 +14,23 @@ public class LoginPage extends GeneralPage {
     private static LoginPage loginPage = null;
 
     public WebElement getLinkForgotPassword() {
-        return WebDriverManage.getInstance().getDriver().findElement(linkForgotPassword);
+        return WebDriverManage.getDriver().findElement(linkForgotPassword);
     }
 
     private WebElement getTxtUsername() {
-        return WebDriverManage.getInstance().getDriver().findElement(_txtUsername);
+        return WebDriverManage.getDriver().findElement(_txtUsername);
     }
 
     private WebElement getTxtPassword() {
-        return WebDriverManage.getInstance().getDriver().findElement(_txtPassword);
+        return WebDriverManage.getDriver().findElement(_txtPassword);
     }
 
     private WebElement getBtnLogin() {
-        return WebDriverManage.getInstance().getDriver().findElement(_btnLogin);
+        return WebDriverManage.getDriver().findElement(_btnLogin);
     }
 
     private WebElement getLblLoginError() {
-        return WebDriverManage.getInstance().getDriver().findElement(_lblLoginError);
+        return WebDriverManage.getDriver().findElement(_lblLoginError);
     }
 
     public String getLoginErrorMessage() {
@@ -39,11 +38,11 @@ public class LoginPage extends GeneralPage {
     }
 
     public HomePage login(String username, String password) {
-        WebDriverManage.getInstance().ScrollTo(this.getTxtUsername());
+        WebDriverManage.ScrollTo(this.getTxtUsername());
         this.getTxtUsername().sendKeys(username);
-        WebDriverManage.getInstance().ScrollTo(this.getTxtPassword());
+        WebDriverManage.ScrollTo(this.getTxtPassword());
         this.getTxtPassword().sendKeys(password);
-        WebDriverManage.getInstance().ScrollTo(this.getBtnLogin());
+        WebDriverManage.ScrollTo(this.getBtnLogin());
         this.getBtnLogin().click();
         return new HomePage();
     }

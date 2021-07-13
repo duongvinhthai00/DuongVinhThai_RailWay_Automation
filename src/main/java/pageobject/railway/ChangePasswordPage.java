@@ -11,7 +11,7 @@ public class ChangePasswordPage extends GeneralPage {
     private static ChangePasswordPage changePasswordPage = null;
 
     private WebElement getChangePasswordFieldById(String id){
-        return WebDriverManage.getInstance().getDriver().findElement(By.id(id));
+        return WebDriverManage.getDriver().findElement(By.id(id));
     }
 
     private WebElement getFieldCurrentPassword(){
@@ -27,11 +27,11 @@ public class ChangePasswordPage extends GeneralPage {
     }
 
     private WebElement getBtnChangePassword(){
-        return WebDriverManage.getInstance().getDriver().findElement(btnChangePassword);
+        return WebDriverManage.getDriver().findElement(btnChangePassword);
     }
 
     private WebElement getLblChangePasswordSuccess(){
-        return WebDriverManage.getInstance().getDriver().findElement(lblChangePasswordSuccess);
+        return WebDriverManage.getDriver().findElement(lblChangePasswordSuccess);
     }
 
     public String getChangePasswordSuccessMessage(){
@@ -39,13 +39,13 @@ public class ChangePasswordPage extends GeneralPage {
     }
 
     public void changePassword(String password,String newPassword){
-        WebDriverManage.getInstance().ScrollTo(this.getFieldCurrentPassword());
+        WebDriverManage.ScrollTo(this.getFieldCurrentPassword());
         this.getFieldCurrentPassword().sendKeys(password);
-        WebDriverManage.getInstance().ScrollTo(this.getFieldNewPassword());
+        WebDriverManage.ScrollTo(this.getFieldNewPassword());
         this.getFieldNewPassword().sendKeys(newPassword);
-        WebDriverManage.getInstance().ScrollTo(this.getFieldConfirmPassword());
+        WebDriverManage.ScrollTo(this.getFieldConfirmPassword());
         this.getFieldConfirmPassword().sendKeys(newPassword);
-        WebDriverManage.getInstance().ScrollTo(this.getBtnChangePassword());
+        WebDriverManage.ScrollTo(this.getBtnChangePassword());
         this.getBtnChangePassword().click();
     }
 }

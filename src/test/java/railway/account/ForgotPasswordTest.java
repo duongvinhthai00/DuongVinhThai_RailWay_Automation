@@ -27,7 +27,7 @@ public class ForgotPasswordTest extends TestBase {
     }
 
     @Test(description = "Errors display if password and confirm password don't match when resetting password")
-    public void TC013() {
+    public void TC013()  {
         homePage.goToLoginPage();
         loginPage.goToForgotPasswordPage();
         forgotPasswordPage.SendRequestResetPassword(Constant.USERNAME);

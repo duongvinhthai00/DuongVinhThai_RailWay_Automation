@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import railway.TestBase;
 
-public class LoginTest extends TestBase {
+public class LoginTest  extends TestBase  {
 
     @BeforeMethod
     public void beforeMethod() {
@@ -41,7 +41,7 @@ public class LoginTest extends TestBase {
     }
 
     @Test(description = "TC03 - User cannot log into Railway with invalid password ")
-    public void TC03() {
+    public void TC03()  {
         System.out.println("TC03 - User cannot log into Railway with invalid password ");
         homePage.goToLoginPage();
         loginPage.login(Constant.USERNAME, Constant.INVALID_PASSWORD);
@@ -49,14 +49,14 @@ public class LoginTest extends TestBase {
     }
 
     @Test(description = "TC04 - Login page displays when un-logged User clicks on Book ticket tab")
-    public void TC04() {
+    public void TC04()  {
         System.out.println("TC04 - Login page displays when un-logged User clicks on Book ticket tab");
         homePage.gotoBookTicketPage();
         Assert.assertTrue(loginPage.checkLoginPageExist(), Constant.LOGIN_PAGE_NOT_EXIST);
     }
 
     @Test(description = "System shows message when user enters wrong password several times")
-    public void TC05() {
+    public void TC05()  {
         System.out.println("TC05 - System shows message when user enters wrong password several times");
         homePage.goToLoginPage();
         loginPage.loginInvalid(4, Constant.USERNAME, Constant.INVALID_PASSWORD);
@@ -64,7 +64,7 @@ public class LoginTest extends TestBase {
     }
 
     @Test(description = "User can't login with an account hasn't been activated")
-    public void TC08() {
+    public void TC08()  {
         homePage.goToLoginPage();
         loginPage.login(Constant.USERNAME, Constant.VALID_PASSWORD);
         Assert.assertEquals(loginPage.isLoginErrorMessageExist(), true);
