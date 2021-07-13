@@ -6,44 +6,43 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends GeneralPage {
-    private final By _txtUsername = By.id("username");
-    private final By _txtPassword = By.id("password");
-    private final By _btnLogin = By.xpath("//input[@value='Login']");
-    private final By _lblLoginError = By.xpath("//p[@class='message error LoginForm']");
+    private final By fieldUsername = By.id("username");
+    private final By fieldPassword = By.id("password");
+    private final By btnLogin = By.xpath("//input[@value='Login']");
+    private final By lblLoginError = By.xpath("//p[@class='message error LoginForm']");
     private final By linkForgotPassword = By.xpath("//div[@id='content']//a[@href='/Account/ForgotPassword.cshtml']");
-    private static LoginPage loginPage = null;
 
     public WebElement getLinkForgotPassword() {
         return WebDriverManage.getDriver().findElement(linkForgotPassword);
     }
 
-    private WebElement getTxtUsername() {
-        return WebDriverManage.getDriver().findElement(_txtUsername);
+    private WebElement getElementUsername() {
+        return WebDriverManage.getDriver().findElement(fieldUsername);
     }
 
-    private WebElement getTxtPassword() {
-        return WebDriverManage.getDriver().findElement(_txtPassword);
+    private WebElement getElementPassword() {
+        return WebDriverManage.getDriver().findElement(fieldPassword);
     }
 
-    private WebElement getBtnLogin() {
-        return WebDriverManage.getDriver().findElement(_btnLogin);
+    private WebElement getElementLoginSubmit() {
+        return WebDriverManage.getDriver().findElement(btnLogin);
     }
 
-    private WebElement getLblLoginError() {
-        return WebDriverManage.getDriver().findElement(_lblLoginError);
+    private WebElement getElementLoginError() {
+        return WebDriverManage.getDriver().findElement(lblLoginError);
     }
 
     public String getLoginErrorMessage() {
-        return this.getLblLoginError().getText();
+        return this.getElementLoginError().getText();
     }
 
     public HomePage login(String username, String password) {
-        WebDriverManage.ScrollTo(this.getTxtUsername());
-        this.getTxtUsername().sendKeys(username);
-        WebDriverManage.ScrollTo(this.getTxtPassword());
-        this.getTxtPassword().sendKeys(password);
-        WebDriverManage.ScrollTo(this.getBtnLogin());
-        this.getBtnLogin().click();
+        WebDriverManage.ScrollTo(this.getElementUsername());
+        this.getElementUsername().sendKeys(username);
+        WebDriverManage.ScrollTo(this.getElementPassword());
+        this.getElementPassword().sendKeys(password);
+        WebDriverManage.ScrollTo(this.getElementLoginSubmit());
+        this.getElementLoginSubmit().click();
         return new HomePage();
     }
 
@@ -51,11 +50,11 @@ public class LoginPage extends GeneralPage {
         this.getLinkForgotPassword().click();
     }
 
-    public Boolean checkLoginPageExist() {
-        Boolean isUserNameExist = this.getTxtUsername().isDisplayed();
-        Boolean isPasswordExist = this.getTxtPassword().isDisplayed();
-        Boolean isBtnLoginExist = this.getBtnLogin().isDisplayed();
-        if (isBtnLoginExist == false || isPasswordExist == false || isUserNameExist == false) {
+    public boolean checkLoginPageExist() {
+        boolean isUserNameExist = this.getElementUsername().isDisplayed();
+        boolean isPasswordExist = this.getElementPassword().isDisplayed();
+        boolean isBtnLoginExist = this.getElementLoginSubmit().isDisplayed();
+        if (!isBtnLoginExist || !isPasswordExist || !isUserNameExist) {
             return false;
         }
         return true;
@@ -63,9 +62,9 @@ public class LoginPage extends GeneralPage {
 
     public boolean isLoginErrorMessageExist() {
         try {
-            getLblLoginError();
+            getElementLoginError();
             return true;
-        }catch (NoSuchElementException error){
+        } catch (NoSuchElementException error) {
             return false;
         }
     }

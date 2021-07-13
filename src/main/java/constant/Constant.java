@@ -39,5 +39,4 @@ public class Constant {
     public static final String DEPART_TIME = "7:30";
     public static final String ARRIVE_TIME = "21:00";
 
-
 }

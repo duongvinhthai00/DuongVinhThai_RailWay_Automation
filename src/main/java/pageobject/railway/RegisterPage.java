@@ -6,81 +6,78 @@ import org.openqa.selenium.WebElement;
 
 public class RegisterPage extends GeneralPage {
 
-    private By txt_email_id = By.id("email");
-    private By txt_password_id = By.id("password");
-    private By txt_confirmPassword_id = By.id("confirmPassword");
-    private By txt_pid_id = By.id("pid");
-    private By btn_Register = By.xpath("//form[@id='RegisterForm']//input[@type='submit']");
-    private By lbl_Register_Successfully = By.xpath("//div[@id='content']/p");
-    private By lbl_Register_failed = By.xpath("//div[@id='content']/p[@class='message error']");
-    private By lbl_Password_empty_message = By.xpath("//form[@id='RegisterForm']//li[@class='password']//label[@class='validation-error']");
-    private By lbl_Pid_empty_message = By.xpath("//form[@id='RegisterForm']//li[@class='pid-number']//label[@class='validation-error']");
-    private static RegisterPage registerPage = null;
+    private final By fieldEmail = By.id("email");
+    private final By fieldPassword = By.id("password");
+    private final By fieldConfirmPassword = By.id("confirmPassword");
+    private final By fieldPid = By.id("pid");
+    private final By btnRegister = By.xpath("//form[@id='RegisterForm']//input[@type='submit']");
+    private final By lblRegisterSuccessfully = By.xpath("//div[@id='content']/p");
+    private final By lblRegisterFailed = By.xpath("//div[@id='content']/p[@class='message error']");
+    private final By lblPasswordEmptyMessage = By.xpath("//form[@id='RegisterForm']//li[@class='password']//label[@class='validation-error']");
+    private final By lblPidEmptyMessage = By.xpath("//form[@id='RegisterForm']//li[@class='pid-number']//label[@class='validation-error']");
 
-    private WebElement getLblPasswordEmpty() {
-        return WebDriverManage.getDriver().findElement(lbl_Password_empty_message);
+    private WebElement getElementPasswordEmpty() {
+        return WebDriverManage.getDriver().findElement(lblPasswordEmptyMessage);
     }
 
-    private WebElement getLblPidEmpty() {
-        return WebDriverManage.getDriver().findElement(lbl_Pid_empty_message);
+    private WebElement getElementPidEmpty() {
+        return WebDriverManage.getDriver().findElement(lblPidEmptyMessage);
     }
 
-    private WebElement getFieldEmail() {
-        return WebDriverManage.getDriver().findElement(txt_email_id);
+    private WebElement getElementEmail() {
+        return WebDriverManage.getDriver().findElement(fieldEmail);
     }
 
-    private WebElement getFieldPassword() {
-        return WebDriverManage.getDriver().findElement(txt_password_id);
+    private WebElement getElementPassword() {
+        return WebDriverManage.getDriver().findElement(fieldPassword);
     }
 
-    private WebElement getFieldConfirmPassword() {
-        return WebDriverManage.getDriver().findElement(txt_confirmPassword_id);
+    private WebElement getElementConfirmPassword() {
+        return WebDriverManage.getDriver().findElement(fieldConfirmPassword);
     }
 
-    private WebElement getFieldPID() {
-        return WebDriverManage.getDriver().findElement(txt_pid_id);
+    private WebElement getElementPID() {
+        return WebDriverManage.getDriver().findElement(fieldPid);
     }
 
     private WebElement getBtnRegister() {
-        return WebDriverManage.getDriver().findElement(btn_Register);
+        return WebDriverManage.getDriver().findElement(btnRegister);
     }
 
-    private WebElement getLblRegisterSuccess() {
-        return WebDriverManage.getDriver().findElement(lbl_Register_Successfully);
+    private WebElement getElementRegisterSuccess() {
+        return WebDriverManage.getDriver().findElement(lblRegisterSuccessfully);
     }
 
-    private WebElement getLblRegisterFailed() {
-        return WebDriverManage.getDriver().findElement(lbl_Register_failed);
+    private WebElement getElementRegisterFailed() {
+        return WebDriverManage.getDriver().findElement(lblRegisterFailed);
     }
 
     public String getRegisterSuccessMessage() {
-        return this.getLblRegisterSuccess().getText();
+        return this.getElementRegisterSuccess().getText();
     }
 
     public String getRegisterFailedMessage() {
-        return this.getLblRegisterFailed().getText();
+        return this.getElementRegisterFailed().getText();
     }
 
     public String getPasswordEmptyMessage() {
-        return this.getLblPasswordEmpty().getText();
+        return this.getElementPasswordEmpty().getText();
     }
 
     public String getPidEmptyMessage() {
-        return this.getLblPidEmpty().getText();
+        return this.getElementPidEmpty().getText();
     }
 
     public void Register(String email, String password, String confirmPassword, String pid) {
-        WebDriverManage.ScrollTo(this.getFieldEmail());
-        this.getFieldEmail().sendKeys(email);
-        WebDriverManage.ScrollTo(this.getFieldPassword());
-        this.getFieldPassword().sendKeys(password);
-        WebDriverManage.ScrollTo(this.getFieldConfirmPassword());
-        this.getFieldConfirmPassword().sendKeys(confirmPassword);
-        WebDriverManage.ScrollTo(this.getFieldPID());
-        this.getFieldPID().sendKeys(pid);
+        WebDriverManage.ScrollTo(this.getElementEmail());
+        this.getElementEmail().sendKeys(email);
+        WebDriverManage.ScrollTo(this.getElementPassword());
+        this.getElementPassword().sendKeys(password);
+        WebDriverManage.ScrollTo(this.getElementConfirmPassword());
+        this.getElementConfirmPassword().sendKeys(confirmPassword);
+        WebDriverManage.ScrollTo(this.getElementPID());
+        this.getElementPID().sendKeys(pid);
         WebDriverManage.ScrollTo(this.getBtnRegister());
         this.getBtnRegister().click();
-        System.out.println("Your UserName/Email : " + email);
-        System.out.println("Your Password : " + password);
     }
 }

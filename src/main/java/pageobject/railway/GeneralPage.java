@@ -12,7 +12,7 @@ public class GeneralPage {
     private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
     private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
     private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
-    private final By tabTimeAble =  By.xpath("//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']");
+    private final By tabTimeAble = By.xpath("//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']");
 
     protected WebElement getTabMyTicket() {
         return WebDriverManage.getDriver().findElement(tabMyTicket);
@@ -89,11 +89,11 @@ public class GeneralPage {
         return false;
     }
 
-    public boolean CheckTabLogoutExist(){
+    public boolean CheckTabLogoutExist() {
         try {
             getTabLogout();
             return true;
-        }catch (NoSuchElementException error){
+        } catch (NoSuchElementException error) {
             return false;
         }
     }

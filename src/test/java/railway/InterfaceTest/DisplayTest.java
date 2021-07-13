@@ -12,7 +12,7 @@ import railway.TestBase;
 public class DisplayTest extends TestBase {
 
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeMethod() {
         homePage.open();
     }
 
