@@ -6,7 +6,7 @@ import constant.Constant;
 public class HomePage extends GeneralPage {
 
     public HomePage open() {
-        System.out.println(WebDriverManage.getDriver());
+        System.out.println(WebDriverManage.getDriver() + " - ID Thread" + Thread.currentThread().getId());
         WebDriverManage.getDriver().navigate().to(Constant.RAILWAY_URL);
         return this;
     }
