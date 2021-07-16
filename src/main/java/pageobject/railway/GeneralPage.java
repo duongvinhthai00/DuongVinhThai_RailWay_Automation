@@ -13,6 +13,7 @@ public class GeneralPage {
     private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
     private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
     private final By tabTimeAble = By.xpath("//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']");
+    private final By tabTicketPrice = By.xpath("//div[@id='menu']//a[@href='/Page/TrainPriceListPage.cshtml']");
 
     protected WebElement getTabMyTicket() {
         return WebDriverManage.getDriver().findElement(tabMyTicket);
@@ -32,6 +33,10 @@ public class GeneralPage {
 
     protected WebElement getTabLogin() {
         return WebDriverManage.getDriver().findElement(tabLogin);
+    }
+
+    protected WebElement getTabTicketPrice () {
+        return WebDriverManage.getDriver().findElement(tabTicketPrice);
     }
 
     protected WebElement getTabLogout() {
@@ -72,6 +77,10 @@ public class GeneralPage {
 
     public void gotoTimeAblePage() {
         this.getTabTimeAble().click();
+    }
+
+    public void gotoTicketPricePage() {
+        this.getTabTicketPrice().click();
     }
 
     public boolean CheckTabDisplayAfterLogin() {

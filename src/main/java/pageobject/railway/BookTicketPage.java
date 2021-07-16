@@ -2,6 +2,7 @@ package pageobject.railway;
 
 import common.WebDriverManage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -11,13 +12,31 @@ public class BookTicketPage extends GeneralPage {
     private final By comboboxArriveAt = By.name("ArriveStation");
     private final By comboboxSeatType = By.name("SeatType");
     private final By comboboxTicketAmount = By.name("TicketAmount");
-    private final By btnBookTicket = By.xpath("//div[@id='content']//form//input[@type='submit']");
+    private final By btnBookTicket = By.xpath("//div[@id='content']//input[@type='submit' and @value='Book ticket']");
     private final By lblBookTicketSuccess = By.xpath("//div[@id='content']//h1[contains(.,'Booked Successfully')]");
-    String tdAfterBookTicket = "//div[@id='content']//table//tr[@class='OddRow']//td[%d]";
+    String tdAfterBookTicket = "//tr[@class='OddRow' and td[text()='%s'] and td[text()='%s'] and td[text()='%s'] and td[text()='%s'] and td[text()='%s']]";
+    String tdAfterBookTicket2 = "//tr[@class='OddRow' and td[text()='%s'] and td[text()='%s'] and td[text()='%s']]";
 
-    public String getCellTextTableBookTicket(int position) {
-        By tdAfterBookTicketFormat = By.xpath(String.format(tdAfterBookTicket, position));
-        return WebDriverManage.getDriver().findElement(tdAfterBookTicketFormat).getText();
+    public boolean checkInfomationAfterBookTicket(String departDate, String departStation, String arriveStation, String seatType, String amount) {
+        By tdAfterBookTicketFormat = By.xpath(String.format(tdAfterBookTicket, departDate, departStation, arriveStation, seatType, amount));
+        try {
+            WebDriverManage.getDriver().findElement(tdAfterBookTicketFormat);
+            return true;
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean checkInfomationAfterBookTicketFromTicketPrice(String departStation, String arriveStation, String seatType) {
+        By tdAfterBookTicketFormat = By.xpath(String.format(tdAfterBookTicket2, departStation, arriveStation, seatType));
+        try {
+            WebDriverManage.getDriver().findElement(tdAfterBookTicketFormat);
+            return true;
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private WebElement getElementBookTicketSuccess() {

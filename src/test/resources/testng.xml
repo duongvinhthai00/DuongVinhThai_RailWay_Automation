@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="classes" thread-count="3">
-    <test name="Railway Test" thread-count="3">
+<suite name="All Test Suite" parallel="classes" thread-count="1">
+    <test name="Railway Test" thread-count="1">
         <classes>
-            <class name="railway.InterfaceTest.DisplayTest"/>
-            <class name="railway.account.BookTicketTest"/>
-            <class name="railway.account.ChangePasswordTest"/>
-            <class name="railway.account.ForgotPasswordTest"/>
-            <class name="railway.account.RegisterTest"/>
-            <class name="railway.login.LoginTest"/>
+            <class name="railway.FinalTest"></class>
         </classes>
     </test>
 </suite>
